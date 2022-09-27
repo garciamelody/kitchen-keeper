@@ -1,0 +1,488 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #F5F0BB;
+    font-family: 'Edu TAS Beginner', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+/* LOGIN PAGE */
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    align-items: center;
+}
+.containerSections{
+    background: white;
+    height: 450px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 6px -6px #777;
+}
+.containerSections div{
+    height: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.containerSections div + div{
+    gap: 20px;
+    padding: 50px;
+}
+.containerSections div + div a{
+    text-decoration: none;
+    color: white;
+    background: gray;
+    width: min-content;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 1.5rem;
+    width: 100%;
+}
+.containerSections div + div a:hover{
+    background:lightgray;
+}
+.loginBody, .signupBody{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loginForm, .signupForm{
+    height: 450px;
+    width: 450px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 50px;
+    box-shadow: 0 10px 6px -6px #777;
+}
+.loginForm input, .signupForm input{
+    font-size: 1.5rem;
+    width: 100%;
+}
+.submitButton{
+    padding: 10px;
+    width: 100%;
+    border: none;
+}
+.submitButton:hover{
+    background: #F5F0BB;
+    cursor: pointer;
+    border: none;
+}
+.loginContainer{
+    align-self: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.loginContainer div{
+    align-self: center;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+/*  */
+
+/* HOME PAGE */
+.homeMenu{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+.logoutIcon{
+    text-decoration: none;
+    color: #F5F0BB;
+    font-size: 2rem;
+}
+.logoutIcon:hover{
+    color: white;
+}
+.homeButton{
+    font-size: 50px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 10px 6px -6px #777;
+    border: none;
+    border-radius: 20px;
+}
+
+.homeButton:hover{
+    background: #fef6ac;
+    cursor: pointer;
+}
+
+nav{
+    background: #D9CB50;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+nav ul{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+nav ul li{
+    margin: 15px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #F5F0BB;
+    font-size: 2rem;
+}
+/* form content */
+#addMoreInstructions, #addMoreIngredients{
+    text-decoration: none;
+    background: white;
+    width: 30%;
+    padding: 10px;
+    align-self: center;
+    border-radius: 20px;
+    color: black;
+}
+#addMoreInstructions:hover, #addMoreIngredients:hover{
+    background: gainsboro;
+}
+.btn{
+    border: none;
+    background: none;
+    font-size: 2rem;
+    color: #F5F0BB;
+}
+
+.btn:hover{
+    cursor: pointer;
+}
+/*  */
+/* ADD NEW RECIPE PAGE */
+
+.recipeContainer{
+    color: black;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.recipeContainer h2{
+    width: 100%;
+    text-align: center;
+}
+
+.recipe {
+    border: solid pink 2px;
+    width: 50%;
+    height: 100%;
+    background: #ede064;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    margin: 50px;
+    gap: 10px;
+    overflow: auto;
+    align-self: center;
+}
+
+.recipeColumns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.ingredientSection, .instructionSection{
+    width: 50%;
+    border: solid white 5px;
+    min-height: 200px;
+}
+
+.ingredientSection input, .instructionSection input{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.recipeTitle{
+    text-align: center;
+}
+
+.recipeTitle input{
+    width: 100%;
+}
+
+/* Add Recipe page */
+.recipeCardSections{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1% 5%;
+    gap: 50px;
+    text-align: center;
+}
+
+.addRecipeForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.addRecipeForm input{
+    width: 30%;
+    text-align: center;
+    align-self: center;
+    font-size: 2rem;
+}
+
+.addRecipeForm .newRecipeSubmit, .editRecipeSubmit{
+    width: 20%;
+    border-radius: 20px;
+    border: none;
+    background: #D9CB50;
+    font-size: 2rem;
+}
+
+.editRecipeSubmit{
+    margin: 20px 0;
+}
+
+.addRecipeForm .newRecipeSubmit:hover, .editRecipeSubmit:hover{
+    cursor: pointer;
+    background: #FFF38C;
+}
+.addRecipeContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    padding: 1% 5%;
+}
+
+/*  */
+
+
+.recipeItemsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.recipeList{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    background: #FFF38C;
+    text-align: center;
+    padding: 20px;
+}
+
+.recipeList h3{
+    font-size: 2rem;
+}
+
+.recipeList ul{
+    background: #D9CB50;
+    height: 100%;
+}
+
+.recipeList ul li{
+    list-style-type: none;
+    text-align: left;
+    font-size: 2rem;
+    margin-left: 10%;
+}
+
+.newRecipeButton {
+    display:block;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(51, 212, 51);
+    font-family: 'Edu TAS Beginner', sans-serif;
+}
+
+.recipeListItem {
+    border: none;
+    border-radius: 5px;
+    background: #D9CB50;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 25%;
+    min-height: 200px;
+}
+
+.recipeContent {
+    font-size: 1rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-self: center;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    min-height: 50px;
+}
+
+/* MY RECIPES PAGE */
+.myRecipeItemsContainer{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.myRecipeList{
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.myRecipeListItem{
+    width: 25%;
+    height: 200px;
+    background: #ede064;
+    border-radius: 20px;
+}
+
+.myRecipeListItem a{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+    padding-top: 10%;
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+}
+
+.myRecipeListItem a:hover{
+    background: #FFF38C;
+    border-radius: 20px;
+}
+
+/* RECIPE CARD PAGE */
+
+.recipeCardSections .recipeContainer, .addRecipeContainer .recipeContainer{
+    width: 50%;
+    min-height: 650px;
+    height: 100%;
+}
+
+.recipeContainer .recipeList{
+    width: 100%;
+    height: 100%;
+}
+
+nav h2{
+    text-align: center;
+    background: white;
+    border: solid white 2px;
+    padding-bottom: 10px;
+}
+
+/* RECIPE EDITING PAGE */
+
+.editSections{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 1% 5%;
+    gap: 50px;
+    text-align: center;
+}
+
+.editContainer{
+    height: 100%;
+    width: 50%;
+    min-height: 550px;
+}
+
+#ingredientList, #instructions{
+    background-color: #D9CB50;
+    height: 100%;
+}
+
+.editForm{
+    text-align: center;
+}
+
+.editForm div{
+    text-align: center;
+    background: white;
+    border: solid white 2px;
+    padding-bottom: 10px;
+}
+
+.editForm div input{
+    text-align: center;
+    font-size: 2rem;
+}
+
+#ingredientList, #instructions{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 2rem;
+    text-align: left;
+}
+
+#ingredientList span{
+    width: 100%;
+}
+
+#ingredientList input, #instructions input{
+    width: 60%;
+    margin-left: 10px;
+    font-size: 2rem;
+    margin-left: 10%;
+}
+
+.newTrash{
+    margin-left: 10px;
+}

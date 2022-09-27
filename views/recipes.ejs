@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+<title>Todo App</title>
+<!--STYLESHEET LINK-->
+<link rel="stylesheet" href="css/style.css">
+<!--GOOGLE FONT-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+<!--ICONS-->
+<script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/home"><i class="fa-solid fa-house"></i></a></li>
+        </ul>
+    </nav>
+    <section class="myRecipeItemsContainer">
+        <ul class="myRecipeList">
+           <% recipeCollection.forEach(recipe => {%>
+           <li class="myRecipeListItem"><a href="/recipe/<%=recipe._id %>">
+               <div class="myRecipeTitle">
+                   <%= recipe.title %>
+               </div>
+            </li></a>
+           <% }) %>
+       </ul>
+   </section>
+</body>
+</html>
