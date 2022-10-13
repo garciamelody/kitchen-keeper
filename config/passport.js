@@ -29,8 +29,7 @@ module.exports = function (passport) {
     User.findById(id, (err, user) => done(err, user))
   })
 
-  passport.use('group-local',new LocalStrategy(
-    (username, password, done) => {
+  passport.use('group-local',new LocalStrategy({ usernameField: 'username'}, (username, password, done) => {
     Group.findOne({ username: username}, (err, group) => {
       if (err) { return done(err) }
       if (!group) {
