@@ -14,7 +14,7 @@ module.exports = {
         try{
             const recipes = await
             Recipe.find()
-            res.render('home.ejs', {recipeCollection: recipes})
+            res.render('home.ejs', {recipeCollection: recipes, user: req.user })
         }catch (err){
             if (err) return res.status(500).send(err)
         }

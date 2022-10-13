@@ -3,6 +3,20 @@ let addMoreInstructions = document.getElementById('addMoreInstructions')
 let ingredients = document.getElementById('ingredientList');
 let instructions = document.getElementById('instructions')
 let ingredientContainer = document.getElementById('ingredientContainer')
+let userDropDown = document.getElementById('userDropDown')
+let dropDown = document.getElementById('dropDownMenu')
+
+
+userDropDown.onmouseover = function(){
+    dropDown.style.display = 'block'
+    console.log('yay')
+}
+dropDown.onmouseover = function(){
+    dropDown.style.display = 'block'
+}
+dropDown.onmouseleave = function(){
+    dropDown.style.display = 'none'
+}
 
 
 var bttn = document.getElementsByClassName('trash');

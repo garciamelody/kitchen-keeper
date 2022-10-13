@@ -13,26 +13,20 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/home"><i class="fa-solid fa-house"></i></a></li>
+            <li><a href="/groupHome"><i class="fa-solid fa-house"></i></a></li>
             <li id="userDropDown"><a href="#"><i class="fa-solid fa-user"></i><i class="fa-solid fa-angle-down"></i></a>
                 <ul id="dropDownMenu">
-                    <li><a href="/logout">Logout</a></li>
-                    <li><a href="/group">Group Login</a></li>
+                    <li><a href="/logout">Sign out</a></li>
+                    <li><a href="/home">Group Logout</a></li>
                 </ul>
             </li>
+            <h1>GROUP  </h1>
         </ul>
     </nav>
-    <section class="myRecipeItemsContainer">
-        <ul class="myRecipeList">
-           <% recipeCollection.forEach(recipe => {%>
-           <li class="myRecipeListItem"><a href="/recipe/<%=recipe._id %>">
-               <div class="myRecipeTitle">
-                   <%= recipe.title %>
-               </div>
-            </li></a>
-           <% }) %>
-       </ul>
-   </section>
-   <script src="/js/main.js"></script>
+    <section class="homeMenu">
+        <a href="/groupRecipes"><button class="homeButton">Group Recipes</button></a>
+        <a href="/addGroupRecipe"><button class="homeButton">Create New Recipe</button></a>
+    </section>
+    <script src="/js/main.js"></script>
 </body>
 </html>

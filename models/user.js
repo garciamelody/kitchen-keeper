@@ -4,7 +4,8 @@ const mongoose = require('mongoose')
 const UserSchema = new mongoose.Schema({
   userName: { type: String, unique: true },
   email: { type: String, unique: true },
-  password: String
+  password: {type: String,},
+  groupID: {type: String,}
 })
 
 
@@ -23,7 +24,6 @@ const UserSchema = new mongoose.Schema({
   })
 })
 
-
 // Helper method for validating user's password.
 
 UserSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
@@ -31,6 +31,7 @@ UserSchema.methods.comparePassword = function comparePassword(candidatePassword,
     cb(err, isMatch)
   })
 }
+
 
 
 module.exports = mongoose.model('User', UserSchema)

@@ -15,6 +15,12 @@
     <nav>
         <ul>
             <li><a href="/home"><i class="fa-solid fa-house"></i></a></li>
+            <li id="userDropDown"><a href="#"><i class="fa-solid fa-user"></i><i class="fa-solid fa-angle-down"></i></a>
+                <ul id="dropDownMenu">
+                    <li><a href="/logout">Logout</a></li>
+                    <li><a href="/group">Group Login</a></li>
+                </ul>
+            </li>
             <li><a href="/myRecipes"><i class="fa-solid fa-utensils"></i></a></li>
             <% recipeCollection.forEach(details=> { %>
                 <% if (details._id==idRecipe) { %>
@@ -60,5 +66,6 @@
             </section>
         </section>
     </section>
+    <script src="/js/main.js"></script>
 </body>
 </html>
