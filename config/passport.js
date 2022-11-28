@@ -1,7 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy
 const mongoose = require('mongoose')
 const User = require('../models/User')
-const Group = require('../models/group')
 
 module.exports = function (passport) {
   passport.use('user-local',new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
@@ -22,29 +21,11 @@ module.exports = function (passport) {
       })
     })
   }))
+
   passport.serializeUser((user, done) => {
     done(null, user.id)
   })
   passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => done(err, user))
-  })
-
-  passport.use('group-local',new LocalStrategy({ usernameField: 'username'}, (username, password, done) => {
-    Group.findOne({ username: username}, (err, group) => {
-      if (err) { return done(err) }
-      if (!group) {
-        return done(null, false, { msg: ` ${username} not found.` })
-      }
-      if (!group.password) {
-        return done(null, false, { msg: 'Your account was registered using a sign-in provider. To enable password login, sign in using a provider, and then set a password under your user profile.' })
-      }
-        group.comparePassword(password, (err, isMatch) => {
-        if (err) { return done(err) }
-        if (isMatch) {
-          return done(null, group)
-        }
-        return done(null, false, { msg: 'Invalid ID or password.' })
-      })
-    })
-  }))
+    User.findById(id, (err, user) => done(err, user));
+  });
 }

@@ -1,41 +1,45 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Todo App</title>
-<!--STYLESHEET LINK-->
-<link rel="stylesheet" href="/css/style.css">
-<!--GOOGLE FONT-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
-<!--ICONS-->
-<script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Keeper</title>
+    <!--STYLESHEET LINK-->
+    <link rel="stylesheet" href="/css/style.css">
+    <!--GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- this is the page where the user will edit a recipe use the id to show just the one recipe they clicked on.-->
-    <nav>
+    <nav class="recipeCardNav">
         <ul>
-            <li><a href="/home"><i class="fa-solid fa-house"></i></a></li>
-            <li id="userDropDown"><a href="#"><i class="fa-solid fa-user"></i><i class="fa-solid fa-angle-down"></i></a>
-                <ul id="dropDownMenu">
-                    <li><a href="/logout">Logout</a></li>
-                    <li><a href="/group">Group Login</a></li>
-                </ul>
+            <li>
+                <a href="/home"><i class="fa-solid fa-house"></i></a>
+                <span>home</span>
             </li>
-            <li><a href="/myRecipes"><i class="fa-solid fa-utensils"></i></a></li>
+            <li>
+                <a title="my recipe collection" href="/myRecipes"><i class="fa-solid fa-utensils"></i></a>
+                <span>my recipes</span>
+            </li>
             <% recipeCollection.forEach(details=> { %>
                 <% if (details._id==idRecipe) { %>
-            <li><a href="/<%=details._id %>"><i class="fa-solid fa-pen-to-square"></i></a></li>
-            <form
-            action="/recipe/remove/<%=details.id %>?_method=DELETE"
-            method="POST"
-            class="col-3">
-            <button class="btn btn-primary fa fa-trash" type="submit"></button></form>
-            <!-- <li><a href="/edit/remove/<%=details._id %>?_method=DELETE"><i class="fa-solid fa-trash"></i></a></li> -->
+            <li>
+                <a title="edit recipe" href="/<%=details._id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+                <span>edit</span>
+            </li>
         </ul>
+ 
+    </nav>
+    <div class="recipeTitle">
         <h2><%= details.title %></h2>
         <% } %>
         <% }) %>
-    </nav>
+    </div>
     <section class="recipeCardSections">
         <section class="recipeContainer">
             <% recipeCollection.forEach(details=> { %>
@@ -44,8 +48,11 @@
                             <h3>Ingredients</h3>
                                 <ul>       
                                     <% for(let i = 0; i < details.ingredients.length; i++) {%>
-                                        <li><%= `${[i + 1]}. ${details.ingredients[i]}` %></li>
-                                        <% } %>           
+                                        <li class="listItem">
+                                            <input class="crossOff" type="checkbox"> 
+                                            <p><%= details.ingredients[i] %></p> 
+                                        </li>
+                                        <% } %>          
                                 </ul>
                                 <% } %>
                                     <% }) %>
@@ -58,7 +65,10 @@
                         <h3>Instructions</h3>
                         <ul>       
                             <% for(let i = 0; i < details.instruction.length; i++) {%>
-                                <li><%= `${[i + 1]}. ${details.instruction[i]}` %></li>
+                                <li class="listItem">
+                                    <input class="crossOff" type="checkbox"> 
+                                    <p><%= `${[i + 1]}. ${details.instruction[i]}` %></p> 
+                                </li>
                                 <% } %>           
                         </ul>
                         <% } %>

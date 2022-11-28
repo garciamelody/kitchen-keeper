@@ -1,7 +1,6 @@
 const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
-const Group = require('../models/group')
 const bcrypt = require('bcrypt')
 
 // loads main login page
@@ -40,30 +39,6 @@ exports.postLogin = (req, res, next) => {
   })(req, res, next)
 }
 
-// group login
-exports.postGroupLogin = (req, res, next) => {
-  const validationErrors = []
-  if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
-  if (validator.isEmpty(req.body.username)) validationErrors.push({ msg: 'username cannot be blank.' })
-  if (validationErrors.length) {
-    req.flash('errors', validationErrors)
-    return res.redirect('/group')
-  }
-  passport.authenticate('group-local', (err, group, info) => {
-    if (err) { return next(err) }
-    if (!group) {
-      req.flash('errors', info)
-      return res.redirect('/group')
-    }
-    req.logIn(group, (err) => {
-      if (err) { return next(err) }
-      console.log('it works')
-      req.flash('success', { msg: 'Success! You are logged in.' })
-      res.redirect('/groupHome')
-    })
-  (req, res, next)
-  })
-}
 //main logout
 exports.logout = (req, res) => {
   req.logout(() => {
@@ -100,7 +75,6 @@ exports.postSignup = (req, res, next) => {
     userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
-    groupID: req.body.groupID
   })
   
   User.findOne({$or: [
@@ -119,41 +93,6 @@ exports.postSignup = (req, res, next) => {
           return next(err)
         }
         res.redirect('/home')
-      })
-    })
-  })
-}
-// makes sure group signup info is valid and initiates a new group user
-exports.postSignupGroup = (req, res, next) => {
-  const validationErrors = []
-  if (validator.isEmpty(req.body.username)) validationErrors.push({ msg: 'Group ID cannot be blank' })
-  if (!validator.isLength(req.body.password, { min: 8 })) validationErrors.push({ msg: 'ID must be at least 8 characters long' })
-  if (req.body.password !== req.body.confirmPassword) validationErrors.push({ msg: 'Passwords do not match' })
-  if (validationErrors.length) {
-    req.flash('errors', validationErrors)
-    return res.redirect('/createGroup')
-  }
-
-  const group = new Group({
-    username: req.body.username,
-    password: req.body.password
-  })
-  
-  Group.findOne({$or: [
-    {username: req.body.username}
-  ]}, (err, existingUser) => {
-    if (err) { return next(err) }
-    if (existingUser) {
-      req.flash('errors', { msg: 'Account with that Group ID already exists.' })
-      return res.redirect('/createGroup')
-    }
-    group.save((err) => {
-      if (err) { return next(err) }
-      req.logIn(group, (err) => {
-        if (err) {
-          return next(err)
-        }
-        res.redirect('/groupHome')
       })
     })
   })

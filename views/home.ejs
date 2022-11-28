@@ -1,32 +1,36 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Todo App</title>
-<!--STYLESHEET LINK-->
-<link rel="stylesheet" href="css/style.css">
-<!--GOOGLE FONT-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
-<!--ICONS-->
-<script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--STYLESHEET LINK-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+    <title>Kitchen Keeper</title>
 </head>
 <body>
-    <nav>
+    <nav class="homeNav">
         <ul>
-            <li><a href="/home"><i class="fa-solid fa-house"></i></a></li>
-            <li id="userDropDown"><a href="#"><i class="fa-solid fa-user"></i><i class="fa-solid fa-angle-down"></i></a>
-                <ul id="dropDownMenu">
-                    <li><a href="/logout">Logout</a></li>
-                    <li><a href="/group">Group Login</a></li>
-                    <li><a href="/createGroup">Create Group</a></li>
-                </ul>
+            <li class="userNameDisplay"> Hello, <%= user.userName %> </li>
+            <li>
+                <a title="logout" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+                <span>logout</span>
             </li>
-            <li> Hello,<%= user.userName %> </li>
         </ul>
     </nav>
+    <div>
+        <span class="userNameMobileDisplay"> Hello, <%= user.userName %>! </span>
+    </div>
     <section class="homeMenu">
-        <a href="/myRecipes"><button class="homeButton">My Recipes</button></a>
-        <a href="/addRecipe"><button class="homeButton">Create New Recipe</button></a>
+        <a href="/myRecipes"><button class="homeButton"><i class="fa-solid fa-utensils"></i> My Recipes</button></a>
+        <a href="/addRecipe"><button class="homeButton">New Recipe</button></a>
+        <a href="/myPantry"><button class="homeButton"><i class="fa-solid fa-jar"></i> My Pantry</button></a>
     </section>
     <script src="/js/main.js"></script>
 </body>

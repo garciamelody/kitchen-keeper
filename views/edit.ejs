@@ -1,39 +1,45 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Todo App</title>
-<!--STYLESHEET LINK-->
-<link rel="stylesheet" href="css/style.css">
-<!--GOOGLE FONT-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
-<!--ICONS-->
-<script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--STYLESHEET LINK-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+    <!--ICONS-->
+    <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+    <title>Kitchen Keeper</title>
 </head>
 <body>
     <!-- this is the page where the user will edit a recipe use the id to show just the one recipe they clicked on.-->
-    <nav>
+    <nav class="editRecipeNav">
         <ul>
-            <li><a href="/home"><i class="fa-solid fa-house"></i></a></li>
-            <li id="userDropDown"><a href="#"><i class="fa-solid fa-user"></i><i class="fa-solid fa-angle-down"></i></a>
-                <ul id="dropDownMenu">
-                    <li><a href="/logout">Logout</a></li>
-                    <li><a href="/group">Group Login</a></li>
-                </ul>
+            <li>
+                <a href="/home"><i class="fa-solid fa-house"></i></a>
+                <span>home</span>
             </li>
-            <li><a href="/myRecipes"><i class="fa-solid fa-utensils"></i></a></li>
+            <li>
+                <a href="/myRecipes"><i class="fa-solid fa-utensils"></i></a>
+                <span>my recipes</span>
+            </li>
             <% recipeCollection.forEach(details=> { %>
                 <% if (details._id==idRecipe) { %>
-                    <form
+                <form
                     action="/recipe/remove/<%=details.id %>?_method=DELETE"
                     method="POST"
                     class="col-3">
-                    <button class="btn btn-primary fa fa-trash" type="submit"></button></form>
+                    <button class="btn btn-primary fa fa-trash" type="submit"></button>
+                    <span>trash</span>
+                </form>
         </ul>
     </nav>
             <form class="editForm" action="/recipe/update/<%= details._id %>?_method=PUT" method="POST">
                 <div>
-                    <input type="text" name="title" placeholder="title" value="<%= details.title %>">
+                    <input type="text" name="title" maxlength="30" placeholder="title" value="<%= details.title %>">
                 </div>
                 <section class="editSections">
                     <section class="editContainer">

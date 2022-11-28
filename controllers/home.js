@@ -1,17 +1,15 @@
+const PantryItem = require('../models/pantryItem')
+
 module.exports = {
     getIndex: (req, res) => {
       res.render("index.ejs");
     },
-    getGroup: (req, res) => {
-      res.render("group.ejs");
-    },
-    getGroupHome: (req, res) => {
-      res.render('groupHome.ejs', {user: req.user })
-    },
-    getGroupRecipes: (req, res) => {
-      res.render('groupRecipes.ejs')
-    },
-    getCreateGroup: (req,res) => {
-      res.render('createGroup.ejs')
-    },
-  };
+    getPantry: async (req, res) => {
+      try {
+        const pantryItems = await PantryItem.find({ user: req.user.id });
+        res.render("allPantry.ejs", {pantryCollection:pantryItems, user:req.user});
+      } catch (err) {
+        console.log(err);
+      }
+    }
+}

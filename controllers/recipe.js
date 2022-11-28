@@ -18,6 +18,14 @@ module.exports = {
         }
     },
     createRecipe: async (req, res)=>{
+        const validationErrors = []
+        if(!req.body.title) validationErrors.push({ msg: 'Please enter a title' })
+        if(!req.body.ingredients) validationErrors.push({ msg: 'Please enter ingredients' })
+        if(!req.body.instruction) validationErrors.push({ msg: 'Please enter instructions' })
+        if (validationErrors.length) {
+          req.flash('errors', validationErrors)
+          return res.redirect('../addRecipe')
+        }
         const recipe = new Recipe(
             {
                 title: req.body.title,

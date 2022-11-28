@@ -1,15 +1,6 @@
 const Recipe = require('../models/recipe')
 
 module.exports = {
-    // getIndex : async (req, res) => {
-    //     try{
-    //         const recipes = await
-    //         Recipe.find()
-    //         res.render('index.ejs', {recipeCollection: recipes})
-    //     }catch (err){
-    //         if (err) return res.status(500).send(err)
-    //     }
-    // },
     getHome: async (req, res) => {
         try{
             const recipes = await
