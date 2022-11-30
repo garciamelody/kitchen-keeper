@@ -3,10 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* base styles */
 html{
     height: 100%;
 }
-/* base styles */
 body {
     background: white;
     font-family: 'Edu TAS Beginner', sans-serif;
@@ -99,7 +99,6 @@ input{
     cursor: pointer;
     border: none;
 }
-
 .loginContainer{
     align-self: center;
     height: 100%;
@@ -117,8 +116,6 @@ input{
     justify-content: center;
     text-align: center;
 }
-/*  */
-
 /* HOME PAGE */
 .userNameDisplay{
     font-size: 1.5rem;
@@ -136,9 +133,6 @@ input{
     text-decoration: none;
     font-size: 2rem;
 }
-/* .logoutIcon:hover{
-    color: white;
-} */
 .homeButton{
     font-size: 50px;
     width: 400px;
@@ -149,25 +143,21 @@ input{
     border-radius: 20px;
     color: white;
 }
-
 .homeButton:hover{
     cursor: pointer;
     background:#7743DB;
 }
-
 .homeNav ul{
     justify-content: end;
     width: 100%;
     margin-right: 20px;
 }
-
 nav{
     background: #3B3486;
     width: 100%;
     display: flex;
     flex-direction: row;
 }
-
 nav ul{
     width: 50%;
     align-items: center;
@@ -175,15 +165,12 @@ nav ul{
     flex-direction: row;
     list-style: none;
 }
-
 nav ul button{
     color: white;
 }
-
 nav ul li{
     margin: 15px;
 }
-
 nav ul li a{
     text-decoration: none;
     font-size: 1.5rem;
@@ -208,13 +195,10 @@ nav ul li a:hover{
     background: none;
     font-size: 2rem;
 }
-
 .btn:hover{
     cursor: pointer;
 }
-/*  */
 /* ADD NEW RECIPE PAGE */
-
 .recipeContainer{
     align-self: center;
     border-radius: 20px;
@@ -224,13 +208,11 @@ nav ul li a:hover{
     justify-content: center;
     background: #7743DB;
 }
-
 .recipeContainer h2{
     color: #5D534A;
     width: 100%;
     text-align: center;
 }
-
 .recipe {
     border: solid pink 2px;
     width: 50%;
@@ -243,34 +225,23 @@ nav ul li a:hover{
     overflow: auto;
     align-self: center;
 }
-
 .recipeColumns{
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 10px;
 }
-
 .ingredientSection, .instructionSection{
     width: 50%;
     border: solid white 5px;
     min-height: 200px;
 }
-
-.ingredientSection input, .instructionSection input{
+.ingredientSection input, .instructionSection input,.recipeTitle input{
     width: 100%;
     margin-bottom: 5px;
-}
-
-.recipeTitle{
     text-align: center;
 }
-
-.recipeTitle input{
-    width: 100%;
-}
-
-/* Add Recipe page */
+/* ADD RECIPE PAGE */
 .recipeCardSections{
     display: flex;
     flex-direction: row;
@@ -288,14 +259,12 @@ nav ul li a:hover{
     justify-content: center;
     margin-top: 20px;
 }
-
 .addRecipeForm input{
     width: 30%;
     text-align: center;
     align-self: center;
     font-size: 2rem;
 }
-
 .addRecipeForm .newRecipeSubmit, .editRecipeSubmit{
     width: 20%;
     border-radius: 20px;
@@ -305,11 +274,9 @@ nav ul li a:hover{
     color: white;
     padding: 10px 15px;
 }
-
 .editRecipeSubmit{
     margin: 20px 0;
 }
-
 .addRecipeForm .newRecipeSubmit:hover, .editRecipeSubmit:hover{
     cursor: pointer;
     background: #4d469e;
@@ -321,10 +288,6 @@ nav ul li a:hover{
     gap: 50px;
     padding: 1% 5%;
 }
-
-/*  */
-
-
 .recipeItemsContainer{
     display: flex;
     flex-direction: column;
@@ -332,7 +295,6 @@ nav ul li a:hover{
     width: 100%;
     height: 100%;
 }
-
 .recipeList{
     width: 100%;
     height: 100%;
@@ -345,34 +307,20 @@ nav ul li a:hover{
     text-align: center;
     padding: 20px;
 }
-
 .recipeList h3{
     font-size: 2rem;
 }
-
 .recipeList ul{
     background: white;
     height: 100%;
     color: #3B3486;
 }
-
 .recipeList ul li{
     list-style-type: none;
     text-align: left;
     font-size: 2rem;
     margin-left: 5%;
 }
-
-.newRecipeButton {
-    display:block;
-    border: none;
-    cursor: pointer;
-    margin: 5px;
-    padding: 5px;
-    /* background-color: rgb(51, 212, 51); */
-    font-family: 'Edu TAS Beginner', sans-serif;
-}
-
 .recipeListItem {
     border: none;
     border-radius: 5px;
@@ -384,7 +332,14 @@ nav ul li a:hover{
     width: 25%;
     min-height: 200px;
 }
-
+.newRecipeButton {
+    display:block;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    padding: 5px;
+    font-family: 'Edu TAS Beginner', sans-serif;
+}
 .recipeContent {
     font-size: 1rem;
     margin-left: 10px;
@@ -397,7 +352,6 @@ nav ul li a:hover{
     width: 100%;
     min-height: 50px;
 }
-
 /* MY RECIPES PAGE */
 .myRecipeItemsContainer{
     display: flex;
@@ -409,7 +363,6 @@ nav ul li a:hover{
 .myRecipeTitle{
     align-self: center;
 }
-
 .myRecipeList{
     width: 100%;
     list-style-type: none;
@@ -419,7 +372,6 @@ nav ul li a:hover{
     justify-content: center;
     gap: 10px;
 }
-
 .myRecipeListItem{
     width: 25%;
     height: 200px;
@@ -427,7 +379,6 @@ nav ul li a:hover{
     border-radius: 20px;
     padding: 10px;
 }
-
 .myRecipeListItem a{
     display: flex;
     flex-direction: row;
@@ -438,14 +389,13 @@ nav ul li a:hover{
     text-align: center;
     align-content: center;
 }
-
 .myRecipeListItem a:hover{
     background: #7743DB;
     border-radius: 20px;
 }
-
 /* RECIPE CARD PAGE */
 .recipeTitle{
+    text-align: center;
     font-size: 2rem;
     color: #3B3486;
 }
@@ -453,7 +403,7 @@ nav ul li a:hover{
     height: 650px;
     width: 50%;
 }
-/* cross of recipe items and instructions */
+/* cross off recipe items and instructions ability */
 .crossOff:checked + p{
     text-decoration: line-through;
 }
@@ -471,61 +421,49 @@ nav ul li a:hover{
     overflow-wrap: break-word;
     inline-size: 80%;
 }
-
-
+/*  */
 nav h2{
     text-align: center;
     color: #5D534A;
     background: white;
     padding-bottom: 10px;
 }
-
 /* RECIPE EDITING PAGE */
-
 .editSections{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    height: 750px;
+    height: min-content;
     width: 100%;
     padding: 1% 5%;
     gap: 50px;
     text-align: center;
 }
-
 .editContainer{
     height: 100%;
     width: 50%;
-    min-height: 550px;
 }
-
 #ingredientList, #instructions{
     padding-top: 15px;
     background-color: white;
     height: 100%;
     color: #3B3486;
 }
-
-
 .editForm{
     text-align: center;
+    height: fit-content;
 }
-
 .editForm div{
     text-align: center;
     background: white;
     padding-bottom: 10px;
     margin-top: 10px;
 }
-
 .editForm div input{
     text-align: center;
     font-size: 2rem;
-}
-div input{
     color: #5D534A;
 }
-
 #ingredientList, #instructions, .recipeList ul{
     display: flex;
     flex-direction: column;
@@ -536,11 +474,9 @@ div input{
     overflow:hidden; overflow-y:scroll;
     height: 600px;
 }
-
 #ingredientList span{
     width: 100%;
 }
-
 #ingredientList input, #instructions input{
     width: 60%;
     margin-left: 10px;
@@ -548,7 +484,6 @@ div input{
     margin-left: 10%;
     color: #5D534A;
 }
-
 .newTrash{
     margin-left: 10px;
 }
@@ -559,42 +494,16 @@ div input{
     color: #7743DB;
     cursor: pointer;
 }
-
 #dropDownMenu li{
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 10px 0px;
 }
-
 #dropDownMenu li a:hover{
     color: white;
 }
-/* nav ul li ul{
-    display: none;
-    position: absolute;
-    background: white;
-    width: min-content;
-    margin-top: 15px;
-    padding: 0;
-}
-
-nav ul li:hover ul{
-    display: block;
-}
-nav ul li ul li{
-    width: 120px;
-}
-nav ul li ul li a{
-    width: 120px;
-    padding: 0;
-}
-
-nav ul li ul li a:hover{
-    background-color: #D9CB50;
-} */
-
-/* pantry */
+/* PANTRY PAGE */
 .pantrySections{
     display: flex;
     flex-direction: column;
@@ -665,14 +574,10 @@ nav ul li ul li a:hover{
     list-style-type: none;
     display: flex;
     justify-content: center;
-    /* display: flex;
-    flex-direction: column;
-    text-align: left; */
 }
 .editPantryNav{
     flex-direction: column;
 }
-
 .editPantryNav input:last-of-type{
     background: #3B3486;
     color: white;
@@ -696,7 +601,6 @@ nav ul li ul li a:hover{
     font-size: 1.5rem;
     margin-top: 5px;
 }
-
 .submitPantryEdit,.deletePantryItem button{
     width: fit-content;
     padding: 5px 20px;
@@ -719,7 +623,6 @@ nav ul li ul li a:hover{
 .deletePantryItem{
     margin-bottom: 5px;
 }
-
 .itemSpecifications{
     display: flex;
     flex-direction: row;
@@ -744,32 +647,20 @@ nav ul li ul li a:hover{
 .editPantryNav .addPantryItemForm .addPantryItemButton{
     background: #3B3486;
 }   
-
 .editPantryNav .addPantryItemForm .addPantryItemButton:hover{
     background:white;
     cursor: pointer;
     color: #3B3486;
 }
-
 .itemSize{
     text-align: left;
 }
-
 .deletePantryItem{
     background: white;
     margin-top: -10px;
     padding: 8px;
     text-align: center;
 }
-
-
-
-/* toggle edit mode */
-/* .editButton{
-    display: none;
-} */
-
-/* pantry css */
 .itemName{
     text-align: center;
 }
@@ -824,7 +715,7 @@ nav ul li ul li a:hover{
     margin: 10px;
     margin-top: 120px;
 }
-
+/* EXTRAS */
 /* success messages */
 #successMessage{
     display: none;
@@ -834,13 +725,10 @@ nav ul li ul li a:hover{
     background: lightgreen;
     padding: 10px;
 }
-
 /* mobile features that are hidden on desktop */
 .userNameMobileDisplay{
     display: none;
 }
-
-
 /* alerts */
 .alertsBox{
     display: flex;
@@ -866,12 +754,28 @@ nav ul li ul li a:hover{
     background: linear-gradient(#f6665c,#f44336);
     margin-right: 10px;
 }
-
 .alertsBox i:hover{
     cursor: pointer;
 }
 
-/* medium screen queries */
+/* MEDIA QUERIES */
+
+/* large screens */
+@media screen and (min-width: 1200px){
+    /* pantry */
+    .pantryItem{
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+    .allPantry{
+        margin: 100px;
+        margin-top: 120px;
+    }
+    .pantryItem .itemName{
+        text-align: center;
+    }
+}   
+/* medium screens */
 @media screen and (min-width:1000px) and (max-width: 1200px){
     /* recipe Card */
     .recipeCardSections{
@@ -882,23 +786,7 @@ nav ul li ul li a:hover{
         flex-direction: column;
     }
 }
-
-/* large screen queries */
-@media screen and (min-width: 1200px){
-        /* pantry */
-        .pantryItem{
-            margin-left: 60px;
-            margin-right: 60px;
-        }
-        .allPantry{
-            margin: 100px;
-            margin-top: 120px;
-        }
-        .pantryItem .itemName{
-            text-align: center;
-        }
-}   
-/* small screen queries */
+/* small screens */
 @media screen and (min-width:500px) and (max-width:1000px){
     /* edit recipe page */
     .editRecipeSubmit{
@@ -962,7 +850,6 @@ nav ul li ul li a:hover{
         margin-top: 10px;
     }
 }
-/* small screen for edit pantry page */
 @media screen and (min-width: 500px) and (max-width: 1470px){
     /* home page */
     .homeMenu section{
@@ -1012,7 +899,7 @@ nav ul li ul li a:hover{
     }
     /* edit recipe page */
     .editForm{
-        height: 100%;
+        height: fit-content;
     }
 }
 /* small screens minimzied */
@@ -1030,23 +917,49 @@ nav ul li ul li a:hover{
         height: 450px;
     }
 }
-
-/* edit page for small-medium screens */
-@media screen and (min-width: 481px) and (max-width: 1300px){
+/* laptop screens */
+@media screen and (max-width: 1000px){
     .editSections{
-        margin-top: 120px;
         flex-direction: column;
         padding: 0 20px;
-        height: 100%;
+        height: fit-content;
         width: 100%;
     }
     .editContainer{
         align-self: center;
         width: 900px;
-        height: 100%;
     }
     .editRecipeSubmit{
-        margin-top: 120px;
+        /* margin-top: 120px; */
+        width: 40%;
+    }
+}
+/* minimized height screens */
+ @media screen and (min-width:800px) and (max-width: 1000px) and (height: 900px){
+    body{
+        background: lime;
+    }
+    .editSections{
+        margin-top: 300px;
+        height: min-content;
+    }
+    .editRecipeSubmit{
+       bottom: 0;
+       margin-top: 250px;
+    }
+}
+@media screen and (min-height: 200px) and (max-height: 700px) and (max-width: 1300px){
+    .editSections{
+        margin-top: 0px;
+    }
+}
+@media screen and (min-height: 100px) and (max-height: 500px) and (max-width: 800px){
+    .editSections{
+        padding-top: 600px;
+        height: 100vh;
+    }
+    .editRecipeSubmit{
+        margin-top: 600px;
     }
 }
 /* mobile media queries */
@@ -1091,7 +1004,6 @@ nav ul li ul li a:hover{
     }
     .myRecipeItemsContainer{
         justify-content: space-between;
-        /* margin-top: 20px; */
         height: 100%;
     }
     .myRecipeTitle{
@@ -1191,10 +1103,6 @@ nav ul li ul li a:hover{
     .recipeTitle h2{
         font-size: 5rem;
     }
-    /* body nav h2{
-        font-size: 5rem;
-        padding-bottom: 40px;
-    } */
     .editSections{
         flex-direction: column;
         padding: 0;
@@ -1265,6 +1173,21 @@ nav ul li ul li a:hover{
         height: 200px;
     }
     /* edit recipe page */
+    .editSections{
+        flex-direction: column;
+        padding: 0 20px;
+        height: fit-content;
+        width: 100%;
+    }
+    .editContainer{
+        align-self: center;
+        width: 900px;
+        height: 100%;
+    }
+    .editRecipeSubmit{
+        margin-top: 120px;
+        width: 40%;
+    }
     .editForm{
         margin: 0 65px;
     }
@@ -1291,7 +1214,7 @@ nav ul li ul li a:hover{
         border-radius: 30px;
     }
     .editForm{
-        height: 100%;
+        height: fit-content;
     }
     .editPantryNav{
         position: fixed;
@@ -1333,5 +1256,4 @@ nav ul li ul li a:hover{
         flex-direction: column;
         font-size: 4rem;
     }
-
 }
