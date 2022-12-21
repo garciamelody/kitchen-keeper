@@ -404,6 +404,9 @@ nav ul li a:hover{
     width: 50%;
 }
 /* cross off recipe items and instructions ability */
+.crossOff:hover{
+    cursor: pointer;
+}
 .crossOff:checked + p{
     text-decoration: line-through;
 }
@@ -782,9 +785,6 @@ nav h2{
         padding-left: 10px;
         padding-right: 10px;
     }
-    .addRecipeContainer{
-        flex-direction: column;
-    }
 }
 /* small screens */
 @media screen and (min-width:500px) and (max-width:1000px){
@@ -814,6 +814,9 @@ nav h2{
     .myRecipeTitle{
         align-self: center;
     }
+    .addRecipeContainer .recipeContainer{
+        width: 80%;
+    }
     /* view recipe page */
     .recipeCardSections .recipeContainer, .editSections .editContainer{
         width: 700px;
@@ -825,7 +828,7 @@ nav h2{
     .recipeCardSections, .addRecipeContainer{
         flex-direction: column;
         padding: 0;
-        align-self: center;
+        /* align-self: center; */
     }
     .recipeList ul li{
         font-size: 2rem;
