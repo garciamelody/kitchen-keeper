@@ -1,130 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--STYLESHEET LINK-->
-    <link rel="stylesheet" href="/css/style.css">
-    <!--GOOGLE FONT-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
-    <!--ICONS-->
-    <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
-    <title>Kitchen Keeper</title>
-</head>
-<body>
-    <nav class="editPantryNav">
-        <ul>
-            <li>
-                <a href="/home"><i class="fa-solid fa-house"></i></a>
-                <span>home</span>
-            </li>
-            <li>
-                <a href="/myPantry"><i class="fa-solid fa-jar"></i></a>
-                <span>pantry</span>
-            </li>
-        </ul>
-        <form class="addPantryItemForm" action="/pantry/addItemEdit" method='POST'>
-            <h2>Add Item</h2>
-            <input type="text" name="itemName" maxlength="30" placeholder="item name">
-            <label for="itemSize">Weight</label>
-            <input type="number" step=".01" name="itemSize" maxlength="30" placeholder="number">
-            <input type="text" name="itemSizeType" maxlength="10" placeholder="oz, lb, g, etc.">
-            <label for="">Quantity</label>
-            <input type="number" name="itemQuantity" maxlength="30" placeholder="number">
-            <label for="itemCategory">Category</label>
-            <select name="itemCategory">
-                <option value="fridge">Fridge</option>
-                <option value="freezer">Freezer</option>
-                <option value="dry">Dry</option>
-            </select>
-            <input class="addPantryItemButton" type="submit">
-        </form>
-        <h2 id="successMessage">Success!</h2>
-    </nav>
-    <% if (pantryCollection.length == 0) { %>
-        <span class="noPantryMsg">No pantry items found</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--STYLESHEET LINK-->
+        <link rel="stylesheet" href="/css/style.css">
+        <!--GOOGLE FONT-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+        <!--ICONS-->
+        <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+        <title>Kitchen Keeper</title>
+    </head>
+    <body>
+        <nav class="editPantryNav">
+            <ul>
+                <li>
+                    <a href="/home"><i class="fa-solid fa-house"></i></a>
+                    <span>home</span>
+                </li>
+                <li>
+                    <a href="/myPantry"><i class="fa-solid fa-jar"></i></a>
+                    <span>pantry</span>
+                </li>
+            </ul>
+            <form class="addPantryItemForm" action="/pantry/addItemEdit" method='POST'>
+                <h2>Add Item</h2>
+                <input type="text" name="itemName" maxlength="30" placeholder="item name">
+                <label for="itemSize">Weight</label>
+                <input type="number" step=".01" name="itemSize" maxlength="30" placeholder="number">
+                <input type="text" name="itemSizeType" maxlength="10" placeholder="oz, lb, g, etc.">
+                <label for="">Quantity</label>
+                <input type="number" name="itemQuantity" maxlength="30" placeholder="number">
+                <label for="itemCategory">Category</label>
+                <select name="itemCategory">
+                    <option value="fridge">Fridge</option>
+                    <option value="freezer">Freezer</option>
+                    <option value="dry">Dry</option>
+                </select>
+                <input class="addPantryItemButton" type="submit">
+            </form>
+            <h2 id="successMessage">Success!</h2>
+        </nav>
+        <% if (pantryCollection.length == 0) { %>
+            <span class="noPantryMsg">No pantry items found</span>
         <% } else { %>
             <section class="editAllPantry">
                 <section class="pantryDryCategory">
                     <ul class="pantryItemList">
                         <h2>Dry Pantry Items</h2>
                         <% pantryCollection.forEach(item => {%>
-                        <% if (item.itemCategory == 'dry') { %>
-                            <form class="pantryEditForm" action="/pantry/update/<%= item._id %>?_method=PUT" method="POST">
-                            <li class="pantryItemEdit">
-                                <span>Type: <input type="text" name="itemCategory" value="<%= item.itemCategory %>"></span>
-                                <span>Product: <input class="productName" name="itemName" value="<%= item.itemName %>"></input></span>
-                                <span>Size: 
-                                    <input class="productSize" name="itemSize" value="<%= item.itemSize %>"></input>
-                                    <input class="productSize" name="itemSizeType" value="<%= item.itemSizeType %>"></input>
-                                </span>
-                                <span>Quantity: <input class="productQuantity" name="itemQuantity" value="<%= item.itemQuantity %>"></input></span> 
-                                <input class="submitPantryEdit" type="submit">
-                                </form>
-                                <form class="deletePantryItem" action="/pantry/delete/<%=item.id %>?_method=DELETE" method="POST">
-                                    <button type="submit">Delete</button>
-                                </form>
-                                <% } %>
-                                <% }) %>
-                            </li> 
+                            <% if (item.itemCategory == 'dry') { %>
+                                <form class="pantryEditForm" action="/pantry/update/<%= item._id %>?_method=PUT" method="POST">
+                                <li class="pantryItemEdit">
+                                    <input type="text" name="itemCategory" hidden value="<%= item.itemCategory %>">
+                                    <span>Product: <input class="productName" name="itemName" value="<%= item.itemName %>"></input></span>
+                                    <span>Size: 
+                                        <input class="productSize" name="itemSize" value="<%= item.itemSize %>"></input>
+                                        <input class="productSize" name="itemSizeType" value="<%= item.itemSizeType %>"></input>
+                                    </span>
+                                    <span>Quantity: <input class="productQuantity" name="itemQuantity" value="<%= item.itemQuantity %>"></input></span> 
+                                    <input class="submitPantryEdit" type="submit">
+                                    </form>
+                                    <form class="deletePantryItem" action="/pantry/delete/<%=item.id %>?_method=DELETE" method="POST">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </li> 
+                            <% } %>
+                        <% }) %>
                     </ul>
                 </section>
-                
                 <section class="pantryFridgeCategory">
                     <ul class="pantryItemList">
                         <h2>Fridge Pantry Items</h2>
                         <% pantryCollection.forEach(item => {%>
-                        <% if (item.itemCategory == 'fridge') { %>
-                            <form class="pantryEditForm" action="/pantry/update/<%= item._id %>?_method=PUT" method="POST">
-                                <li class="pantryItemEdit">
-                                    <span>Type: <input type="text" name="itemCategory" value="<%= item.itemCategory %>"></span>
-                                    <span>Product: <input class="productName" name="itemName" value="<%= item.itemName %>"></input></span>
-                                    <span>Size: 
-                                        <input class="productSize" name="itemSize" value="<%= item.itemSize %>"></input>
-                                        <input class="productSize" name="itemSizeType" value="<%= item.itemSizeType %>"></input>
-                                    </span>
-                                    <span>Quantity: <input class="productQuantity" name="itemQuantity" value="<%= item.itemQuantity %>"></input></span> 
-                                    <input class="submitPantryEdit" type="submit">
-                                    </form>
-                                    <form class="deletePantryItem" action="/pantry/delete/<%=item.id %>?_method=DELETE" method="POST">
-                                        <button type="submit">Delete</button>
-                                    </form>
-                                </li> 
-                        <% } %>
+                            <% if (item.itemCategory == 'fridge') { %>
+                                <form class="pantryEditForm" action="/pantry/update/<%= item._id %>?_method=PUT" method="POST">
+                                    <li class="pantryItemEdit">
+                                        <input type="text" name="itemCategory" hidden value="<%= item.itemCategory %>">
+                                        <span>Product: <input class="productName" name="itemName" value="<%= item.itemName %>"></input></span>
+                                        <span>Size: 
+                                            <input class="productSize" name="itemSize" value="<%= item.itemSize %>"></input>
+                                            <input class="productSize" name="itemSizeType" value="<%= item.itemSizeType %>"></input>
+                                        </span>
+                                        <span>Quantity: <input class="productQuantity" name="itemQuantity" value="<%= item.itemQuantity %>"></input></span> 
+                                        <input class="submitPantryEdit" type="submit">
+                                        </form>
+                                        <form class="deletePantryItem" action="/pantry/delete/<%=item.id %>?_method=DELETE" method="POST">
+                                            <button type="submit">Delete</button>
+                                        </form>
+                                    </li> 
+                            <% } %>
                         <% }) %>
                     </ul>
                 </section>
-        
                 <section class="pantryFreezerCategory">
                     <ul class="pantryItemList">
                         <h2>Freezer Pantry Items</h2>
                         <% pantryCollection.forEach(item => {%>
-                        <% if (item.itemCategory == 'freezer') { %>
-                            <form class="pantryEditForm" action="/pantry/update/<%= item._id %>?_method=PUT" method="POST">
-                                <li class="pantryItemEdit">
-                                    <span>Type: <input type="text" name="itemCategory" value="<%= item.itemCategory %>"></span>
-                                    <span>Product: <input class="productName" name="itemName" value="<%= item.itemName %>"></input></span>
-                                    <span>Size: 
-                                        <input class="productSize" name="itemSize" value="<%= item.itemSize %>"></input>
-                                        <input class="productSize" name="itemSizeType" value="<%= item.itemSizeType %>"></input>
-                                    </span>
-                                    <span>Quantity: <input class="productQuantity" name="itemQuantity" value="<%= item.itemQuantity %>"></input></span> 
-                                    <input class="submitPantryEdit" type="submit">
-                                    </form>
-                                    <form class="deletePantryItem" action="/pantry/delete/<%=item.id %>?_method=DELETE" method="POST">
-                                        <button type="submit">Delete</button>
-                                    </form>
-                                </li> 
-                        <% } %>
+                            <% if (item.itemCategory == 'freezer') { %>
+                                <form class="pantryEditForm" action="/pantry/update/<%= item._id %>?_method=PUT" method="POST">
+                                    <li class="pantryItemEdit">
+                                        <input type="text" name="itemCategory" hidden value="<%= item.itemCategory %>">
+                                        <span>Product: <input class="productName" name="itemName" value="<%= item.itemName %>"></input></span>
+                                        <span>Size: 
+                                            <input class="productSize" name="itemSize" value="<%= item.itemSize %>"></input>
+                                            <input class="productSize" name="itemSizeType" value="<%= item.itemSizeType %>"></input>
+                                        </span>
+                                        <span>Quantity: <input class="productQuantity" name="itemQuantity" value="<%= item.itemQuantity %>"></input></span> 
+                                        <input class="submitPantryEdit" type="submit">
+                                        </form>
+                                        <form class="deletePantryItem" action="/pantry/delete/<%=item.id %>?_method=DELETE" method="POST">
+                                            <button type="submit">Delete</button>
+                                        </form>
+                                    </li> 
+                            <% } %>
                         <% }) %>
                     </ul>
                 </section>
             </section>
-            <% } %>
-   
-    
-    <script src="/js/main.js"></script>
-</body>
+        <% } %>
+        <script src="/js/main.js"></script>
+    </body>
 </html>

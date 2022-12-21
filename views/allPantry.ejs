@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--STYLESHEET LINK-->
-    <link rel="stylesheet" href="/css/style.css">
-    <!--GOOGLE FONT-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
-    <!--ICONS-->
-    <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
-    <title>Kitchen Keeper</title>
-</head>
-<body class="pantryBody">
-    <nav class="pantryNav">
-        <ul>
-            <li>
-                <a href="/home"><i class="fa-solid fa-house"></i></a>
-                <span>home</span>
-            </li>
-            <% if (pantryCollection.length > 0) { %>
-            <li>
-                <a href="/pantry/edit"><i class="fa-solid fa-pen-to-square"></i></a>
-                <span>edit</span>
-            </li>
-            <% } %>
-        </ul>
-    </nav>
-    <% if (pantryCollection.length == 0) { %>
-        <span class="createPantryAction">No pantry items found</span>
-        <a class="getPantryStarted" href="/pantry/edit">Add something!</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--STYLESHEET LINK-->
+        <link rel="stylesheet" href="/css/style.css">
+        <!--GOOGLE FONT-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+        <!--ICONS-->
+        <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+        <title>Kitchen Keeper</title>
+    </head>
+    <body class="pantryBody">
+        <nav class="pantryNav">
+            <ul>
+                <li>
+                    <a href="/home"><i class="fa-solid fa-house"></i></a>
+                    <span>home</span>
+                </li>
+                <% if (pantryCollection.length > 0) { %>
+                    <li>
+                        <a href="/pantry/edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <span>edit</span>
+                    </li>
+                <% } %>
+            </ul>
+        </nav>
+        <% if (pantryCollection.length == 0) { %>
+            <span class="createPantryAction">No pantry items found</span>
+            <a class="getPantryStarted" href="/pantry/edit">Add something!</a>
         <% }else { %>
             <section class="allPantry">
                 <section class="pantryDryCategory">
                     <ul class="pantryItemList">
                         <h2>Dry Pantry Items</h2>
                         <% pantryCollection.forEach(pantryItem => {%>
-                        <% if (pantryItem.itemCategory == 'dry') { %>
-                            <li class="pantryItem">
-                                <span class="itemName"><%= pantryItem.itemName %></span>
-                                <div class="itemSpecifications">
-                                    <span> Quantity: <%= pantryItem.itemQuantity %></span>
-                                    <span class="itemSize"> Size: <%=`${pantryItem.itemSize} ${pantryItem.itemSizeType}`%></span>
-                                </div>
-                            </li>  
-                        <% } %>
+                            <% if (pantryItem.itemCategory == 'dry') { %>
+                                <li class="pantryItem">
+                                    <span class="itemName"><%= pantryItem.itemName %></span>
+                                    <div class="itemSpecifications">
+                                        <span> Quantity: <%= pantryItem.itemQuantity %></span>
+                                        <span class="itemSize"> 
+                                            Size: <%=`${pantryItem.itemSize} ${pantryItem.itemSizeType}`%>
+                                        </span>
+                                    </div>
+                                </li>  
+                            <% } %>
                         <% }) %>
                     </ul>
                 </section>
-        
                 <section class="pantryFridgeCategory">
                     <ul class="pantryItemList">
                         <h2>Fridge Pantry Items</h2>
@@ -66,26 +67,24 @@
                         <% }) %>
                     </ul>
                 </section>
-        
                 <section class="pantryFreezerCategory">
                     <ul class="pantryItemList">
                         <h2>Freezer Pantry Items</h2>
                         <% pantryCollection.forEach(pantryItem => {%>
-                        <% if (pantryItem.itemCategory == 'freezer') { %>
-                            <li class="pantryItem">
-                                <span class="itemName"><%= pantryItem.itemName %></span>
-                                <div class="itemSpecifications">
-                                    <span> Quantity: <%= pantryItem.itemQuantity %></span>
-                                    <span class="itemSize"> Size: <%=`${pantryItem.itemSize} ${pantryItem.itemSizeType}`%></span>
-                                </div>
-                            </li>   
-                        <% } %>
+                            <% if (pantryItem.itemCategory == 'freezer') { %>
+                                <li class="pantryItem">
+                                    <span class="itemName"><%= pantryItem.itemName %></span>
+                                    <div class="itemSpecifications">
+                                        <span> Quantity: <%= pantryItem.itemQuantity %></span>
+                                        <span class="itemSize"> Size: <%=`${pantryItem.itemSize} ${pantryItem.itemSizeType}`%></span>
+                                    </div>
+                                </li>   
+                            <% } %>
                         <% }) %>
                     </ul>
                 </section>
             </section>
         <% } %>    
-    
-    <script src="/js/main.js"></script>
-</body>
+        <script src="/js/main.js"></script>
+    </body>
 </html>

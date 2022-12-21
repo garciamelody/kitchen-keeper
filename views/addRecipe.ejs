@@ -1,64 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--STYLESHEET LINK-->
-    <link rel="stylesheet" href="css/style.css">
-    <!--GOOGLE FONT-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
-    <!--ICONS-->
-    <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
-    <title>Kitchen Keeper</title>
-</head>
-<body>
-    <nav>
-        <ul>
-            <li>
-                <a href="/home"><i class="fa-solid fa-house"></i></a>
-                <span>home</span>
-            </li>
-        </ul>
-    </nav>
-    <div class="alertsBox">
-        <% if (locals.messages.errors) { %>
-            <% messages.errors.forEach( el => { %>
-                <div class="alert alert-danger"><%= el.msg %><i class="fa-solid fa-x trash"></i></div>
-            <% }) %>   
-        <% } %>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--STYLESHEET LINK-->
+        <link rel="stylesheet" href="css/style.css">
+        <!--GOOGLE FONT-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500&display=swap" rel="stylesheet">
+        <!--ICONS-->
+        <script src="https://kit.fontawesome.com/195edb381b.js" crossorigin="anonymous"></script>
+        <title>Kitchen Keeper</title>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/home"><i class="fa-solid fa-house"></i></a>
+                    <span>home</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="alertsBox">
+            <% if (locals.messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %><i class="fa-solid fa-x trash"></i></div>
+                <% }) %>   
+            <% } %>
+        </div>
 
-    <form class="addRecipeForm" action="/recipe/createRecipe" method='POST'>
-        <input type="text" maxlength="30" name="title" placeholder="Title">
-        <section class="addRecipeContainer">
-            <section class="recipeContainer">
-                <section class="recipeList">
-                    <section id="ingredientList">
-                        <span class="ingredientContainer">
-                            <input type="text" name="ingredients" placeholder="Ingredient">
-                            <i class="fa-solid fa-trash-can trash"></i>
-                        </span>
+        <form class="addRecipeForm" action="/recipe/createRecipe" method='POST'>
+            <input type="text" maxlength="30" name="title" placeholder="Title">
+            <section class="addRecipeContainer">
+                <section class="recipeContainer">
+                    <section class="recipeList">
+                        <h3>Ingredients</h3>
+                        <section id="ingredientList">
+                            <span class="ingredientContainer">
+                                <input type="text" name="ingredients" placeholder="Ingredient">
+                                <i class="fa-solid fa-trash-can trash"></i>
+                            </span>
+                        </section>
+                        <a href="#" id="addMoreIngredients"><i class="fa fa-plus"></i> Add More</a>
                     </section>
-                    <a href="#" id="addMoreIngredients"><i class="fa fa-plus"></i> Add More</a>
+                </section>
+                <section class="recipeContainer">
+                    <section class="recipeList">
+                        <h3>Instructions</h3>
+                        <section id="instructions">
+                            <span class="ingredientContainer">
+                                <input type="text" name="instruction" placeholder="Instructions">
+                                <i class="fa-solid fa-trash-can trash"></i>
+                            </span>
+                        </section>
+                        <a href="#" id="addMoreInstructions"><i class="fa fa-plus"></i>Add More</a>
+                    </section>
                 </section>
             </section>
-            <section class="recipeContainer">
-                <section class="recipeList">
-                    <section id="instructions">
-                        <span class="ingredientContainer">
-                            <input type="text" name="instruction" placeholder="Instructions">
-                            <i class="fa-solid fa-trash-can trash"></i>
-                        </span>
-                    </section>
-                    <a href="#" id="addMoreInstructions"><i class="fa fa-plus"></i>Add More</a>
-                </section>
-            </section>
-        </section>
-        <input class="newRecipeSubmit" type="submit">
-    </form>
-
-    <script src="/js/main.js"></script>
-</body>
+            <input class="newRecipeSubmit" type="submit">
+        </form>
+        <script src="/js/main.js"></script>
+    </body>
 </html>
