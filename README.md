@@ -23,17 +23,17 @@ Users can also edit their pantry item specifications or remove items entirely fr
 
 
 # What is it made with?
-EJS, Javascript, CSS, Node.js, Express.js, MongoDB, Mongoose
+EJS, JavaScript, CSS, Node.js, Express.js, MongoDB, Mongoose
 
 # EJS
-This app uses EJS to generate HTML using Javascript, allowing the app to render recipes and pantry items based on user data.
+This app uses EJS to generate HTML using JavaScript, allowing the app to render recipes and pantry items based on user data.
 
-# Javascript
-Javascript handles what happens when the user interacts with things like buttons. It removes recipe ingredients or instructions as the user 
+# JavaScript
+JavaScript handles what happens when the user interacts with things like buttons. It removes recipe ingredients or instructions as the user 
 edits their recipe. It also appends new inputs to the recipe card page, allowing users to add more ingredients and instructions as needed.
 
 # Node.js
-Node.js is responsible for the server-side aspect. It uses Javascript to build scalable applications.
+Node.js is responsible for the server-side aspect. It uses JavaScript to build scalable applications.
 
 # Express.js
 Express.js is a framework for Node.js that comes with lots of features. It is responsible for routing and middleware throughout the app.
